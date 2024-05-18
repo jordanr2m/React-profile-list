@@ -7,14 +7,17 @@ import { FaTrashAlt } from "react-icons/fa";
 const Profile = () => {
   const [userProfile, setUserProfile] = useState(profileData);
 
-  const handleDelete = () => {
-    userProfile.filter((profile) => {
-        
-    })
+  const removeProfile = (id) => {
+    console.log(id); // shows id that was clicked
+
+    // return all profiles that do not match the id that was passed in
+    const newProfileList = userProfile.filter((profile) => profile.id !== id);
+
+    setUserProfile(newProfileList);
   }
     
   return (
-    <section className='profile-sec'>
+    <section className='profile-sec --flex-center'>
       <div className='container'>
         <h2 className="--text-light">User Profiles</h2>
         {userProfile.map((profile) => (
@@ -26,7 +29,8 @@ const Profile = () => {
                 </div>
                 <FaTrashAlt className="icon"
                     size={18}
-                    // color={"white"}
+                    // Must write this as an arrow function, or else it will run on page load, not when clicked
+                    onClick={() => removeProfile(profile.id)}
                 />
             </div>
         ))}

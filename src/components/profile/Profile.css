@@ -2,7 +2,6 @@
     /* Cool that you can use variables from App.css in here */
     background-color: var(--dark-blue);
     min-height: 100vh;
-    display: flex;
 }
 
 .profile {
@@ -12,9 +11,9 @@
     padding: 10px;
 }
 
-.container h2 {
+/* .container h2 {
     text-align: center;
-}
+} */
 
 .profile img {
     width: 6rem;
