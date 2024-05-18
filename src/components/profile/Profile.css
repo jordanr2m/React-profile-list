@@ -1,0 +1,42 @@
+.profile-sec {
+    /* Cool that you can use variables from App.css in here */
+    background-color: var(--dark-blue);
+    min-height: 100vh;
+    display: flex;
+}
+
+.profile {
+    min-width: 370px;
+    border: 1px solid #fff;
+    margin-bottom: 1rem;
+    padding: 10px;
+}
+
+.container h2 {
+    text-align: center;
+}
+
+.profile img {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    margin-right: -10px;
+}
+
+.profile .icon {
+    color: #fff;
+    cursor: pointer;
+}
+/* Can also set color inline in icon with color={"white"} */
+
+.profile .icon:hover {
+    color: red;
+}
+
+
+
+@media screen and (max-width: 600px) {
+    .profile {
+        flex-direction: row;
+    }
+}
