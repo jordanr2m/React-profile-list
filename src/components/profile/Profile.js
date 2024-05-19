@@ -5,21 +5,32 @@ import { FaTrashAlt } from "react-icons/fa";
 
 // In order to map over profileData, we must put it in a state. Now, in order to access the array, we will use userProfile
 const Profile = () => {
+    // State to store user profile list
   const [userProfile, setUserProfile] = useState(profileData);
+    // State to store search results
+  const [search, setSearch] = useState("");
 
   const removeProfile = (id) => {
     console.log(id); // shows id that was clicked
-
     // return all profiles that do not match the id that was passed in
     const newProfileList = userProfile.filter((profile) => profile.id !== id);
-
     setUserProfile(newProfileList);
+  }
+
+  const handleInputChange = (e) => {
+    setSearch(e.target.value);
   }
     
   return (
     <section className='profile-sec --flex-center'>
       <div className='container'>
         <h2 className="--text-light">User Profiles</h2>
+        {/* Search bar */}
+        <input 
+            className="search-bar" 
+            type="text" placeholder="Search by name" 
+            onChange={handleInputChange} 
+        />
         {userProfile.map((profile) => (
             <div className="profile --card --flex-between" key={profile.id}>
                 <img src={profile.img} alt="profile" />
