@@ -29,9 +29,20 @@ const Profile = () => {
         <input 
             className="search-bar" 
             type="text" placeholder="Search by name" 
-            onChange={handleInputChange} 
+            onChange={handleInputChange}
+            // Set value equal to search state
+            value={search} 
         />
-        {userProfile.map((profile) => (
+        {/* We must filter through the profiles before we map them. Value represents each user profile */}
+        {userProfile.filter((value) => {
+            // If the search bar is empty, return all profiles
+            if (search === "") {
+                return value;
+            // If the value typed in the bar matches a name, return it
+            } else if (value.name.toLowerCase().includes(search.toLowerCase())) {
+                return value;
+            }
+        }).map((profile) => (
             <div className="profile --card --flex-between" key={profile.id}>
                 <img src={profile.img} alt="profile" />
                 <div className="description">
