@@ -42,6 +42,7 @@ const Profile = () => {
             } else if (value.name.toLowerCase().includes(search.toLowerCase())) {
                 return value;
             }
+            // Otherwise, nothing is returned and no profile are shown
         }).map((profile) => (
             <div className="profile --card --flex-between" key={profile.id}>
                 <img src={profile.img} alt="profile" />
